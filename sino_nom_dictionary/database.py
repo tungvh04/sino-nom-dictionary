@@ -3,6 +3,7 @@ import os
 from PIL import Image
 import numpy as np
 import re
+import pkg_resources
 
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 DATABASE = os.path.join(BASE_DIR, '../data')
@@ -14,7 +15,8 @@ json_database = None
 def load_database():
     global json_database
     json_database = {}
-    with open(DATA_JSON, 'r') as f:
+    data_file = pkg_resources.resource_filename(__name__, '../data/thivien_nomfoundation.json')
+    with open(data_file, 'r') as f:
         db = json.load(f)
     for item in db:
         json_database[item['chinese_character']] = item
@@ -22,6 +24,7 @@ def load_database():
 def get_image(image_path: str) -> np.ndarray:
     image_path = re.sub(r'/', '_', image_path)
     image_path = os.path.join(IMAGE_DIR, image_path)
+    img_path = pkg_resources.resource_filename(__name__, '../data/hvthivien_images/' + image_path)
     img = Image.open(image_path)
     return np.array(img)
 

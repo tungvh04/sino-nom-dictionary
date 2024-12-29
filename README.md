@@ -1,5 +1,19 @@
 # sino-nom-dictionary
 
+## Installation
+
+1. Clone this repo
+```
+git clone https://github.com/tungvh04/sino-nom-dictionary.git
+```
+
+2. Setup library
+
+```
+pip install <path-to-this-repo>
+```
+
+
 ## Import
 ```python
 import sino_nom_dictionary
