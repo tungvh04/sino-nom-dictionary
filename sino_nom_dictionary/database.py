@@ -16,7 +16,7 @@ def load_database():
     global json_database
     json_database = {}
     data_file = pkg_resources.resource_filename(__name__, '../data/thivien_nomfoundation.json')
-    with open(data_file, 'r') as f:
+    with open(data_file, 'r', encoding='utf8') as f:
         db = json.load(f)
     for item in db:
         json_database[item['chinese_character']] = item
