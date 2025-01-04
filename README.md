@@ -95,7 +95,7 @@ for image in images:
     img.show()
 ```
 
-![Image 1](0.png)
-![Image 2](1.png)
-![Image 3](2.png)
-![Image 4](3.png)
+![Image 1](images/0.png)
+![Image 2](images/1.png)
+![Image 3](images/2.png)
+![Image 4](images/3.png)
