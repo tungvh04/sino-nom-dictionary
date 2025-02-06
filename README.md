@@ -89,10 +89,10 @@ from PIL import Image
 chinese_character = '一'
 
 images = sino_nom_dictionary.retrieve(chinese_character, 'images')
-
-for image in images:
-    img = Image.fromarray(image)
-    img.show()
+for style, image in images:
+    image = Image.fromarray(image)
+    print(style, image.size)
+    image.show()
 ```
 
 ![Image 1](images/0.png)

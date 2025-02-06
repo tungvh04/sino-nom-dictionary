@@ -24,7 +24,7 @@ def retrieve(chinese_character: str, field: str, reading: str = None):
     If field is 'nearly_similar', the return value is a list of nearly similar Chinese characters.
     If field is 'variants', the return value is a list of variants.
     If field is 'variations', the return value is a list of variations.
-    If field is 'images', the return value is a list of numpy arrays.
+    If field is 'images', the return value is a list of tuples (style, image). The style is the style of the image and the image is a numpy array.
     If field is 'readings', the return value is a list of readings.
     If field is 'meanings', the return value is the dict of source and array of meanings in that source.
     If the field is not found, the return value is None.
@@ -36,9 +36,9 @@ def retrieve(chinese_character: str, field: str, reading: str = None):
     if field == 'images':
         image_paths = get_field(chinese_character=chinese_character, field='images_path')
         results = []
-        for image_path in image_paths:
-            img = get_image(image_path)
-            results.append(img)
+        for style, path in image_paths:
+            img = get_image(path)
+            results.append((style, img))
         return results
     if field == 'stroke':
         stroke = get_field(chinese_character=chinese_character, field=field)

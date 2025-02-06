@@ -5,9 +5,10 @@ import numpy as np
 import re
 import pkg_resources
 
+JSON_FILE = 'thivien_nomfoundation_2_0.json'
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 DATABASE = os.path.join(BASE_DIR, '../data')
-DATA_JSON = os.path.join(DATABASE, 'thivien_nomfoundation.json')
+DATA_JSON = os.path.join(DATABASE, JSON_FILE)
 IMAGE_DIR = os.path.join(DATABASE, 'hvthivien_images')
 
 json_database = None
@@ -15,7 +16,7 @@ json_database = None
 def load_database():
     global json_database
     json_database = {}
-    data_file = pkg_resources.resource_filename(__name__, '../data/thivien_nomfoundation.json')
+    data_file = pkg_resources.resource_filename(__name__, '../data/'+ JSON_FILE)
     with open(data_file, 'r', encoding='utf8') as f:
         db = json.load(f)
     for item in db:
