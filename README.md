@@ -45,7 +45,7 @@ sino_nom_dictionary.retrieve(chinese_character:str, field:str, reading:str = Non
     If field is 'nearly_similar', the return value is a list of nearly similar Chinese characters.
     If field is 'variants', the return value is a list of variants.
     If field is 'variations', the return value is a list of variations.
-    If field is 'images', the return value is a list of numpy arrays.
+    If field is 'images', the return value is a list of tuples (style, image). The style is the style of the image and the image is a numpy array.
     If field is 'readings', the return value is a list of readings.
     If field is 'meanings', the return value is the dict of source and array of meanings in that source.
     If the field is not found, the return value is None.
