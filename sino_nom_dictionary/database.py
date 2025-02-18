@@ -26,7 +26,9 @@ def get_image(image_path: str) -> np.ndarray:
     image_path = re.sub(r'/', '_', image_path)
     image_path = os.path.join(IMAGE_DIR, image_path)
     img_path = pkg_resources.resource_filename(__name__, '../data/hvthivien_images/' + image_path)
-    img = Image.open(image_path)
+    # assert that the image exists
+    assert os.path.exists(image_path), f'Image {image_path} does not exist'
+    img = Image.open(image_path).convert('RGBA')
     return np.array(img)
 
 def get_field(chinese_character, field: str) -> str:
