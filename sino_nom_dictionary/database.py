@@ -5,7 +5,7 @@ import numpy as np
 import re
 import pkg_resources
 
-JSON_FILE = 'thivien_nomfoundation_2_0.json'
+JSON_FILE = 'thivien_nomfoundation_3_0.json'
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 DATABASE = os.path.join(BASE_DIR, '../data')
 DATA_JSON = os.path.join(DATABASE, JSON_FILE)
